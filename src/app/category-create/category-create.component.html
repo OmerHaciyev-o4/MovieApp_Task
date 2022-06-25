@@ -1,0 +1,15 @@
+<h1>Create Category</h1>
+
+<form>
+
+    <div class="mb-3">
+        <label for="title" class="form-label">Category Name</label>
+        <input #name type="text" class="form-control">
+    </div>
+
+    <button 
+        class="btn btn-success" 
+        (click)="createCategory(name.value)">Create Category
+    </button>
+
+</form>

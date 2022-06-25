@@ -1,0 +1,42 @@
+<div *ngIf="movie else no_movies" >
+    <div class="card">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{{ movie.imageUrl }}" class="img-fluid rounded-start" >
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <input 
+                        #title
+                        type="text" 
+                        class="card-title w-100 border-1 fs-3 m-0 overflow-hidden border-0 user-select-none"
+                        maxlength="20" 
+                        disabled
+                        [(ngModel)]="movie.title">
+                    <textarea   
+                        #desc
+                        class="w-100 h-100 mt-1 border-0 ms-1" 
+                        disabled
+                        rows="10"
+                        [(ngModel)]="movie.description"></textarea>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <a 
+                        #updateBtn
+                        class="btn btn-warning text-light me-3"
+                        (click)="update(updateBtn, title, desc)"
+                        >Update</a>
+                    <a 
+                        routerLink="/movies"
+                        class="btn btn-danger text-light me-3"
+                        (click)="deleteMovie()"
+                        >Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #no_movies>
+    <div class="alert alert-warning">No movie found.</div>
+</ng-template>
